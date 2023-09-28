@@ -1,0 +1,56 @@
+.quseList{
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+    margin-bottom: 15px;
+}
+.user_name >input{
+    height: 30px;
+    width: 300px;
+    border: none;
+    border-bottom: solid 1px;
+    font-size: large;
+    background-color: transparent;
+    padding-left: 10px;
+}
+.user_name{
+    margin-bottom:20px ;
+}
+.landing{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    width: 340px;
+    height: 480px;
+    background-color:antiquewhite;
+    padding: 20px;
+    box-shadow: 1px 2px 15px 0px;
+    border-radius: 10px;
+    font-size: larger;
+}
+
+.selectQues{
+    font-size: larger;
+    margin-bottom: 20px;
+}
+
+.nextBTN{
+    display: block;
+  
+   font-size: large;
+   border-radius: 10px;
+   padding: 5px 10px;
+  margin-top: -5px;
+   color: #fff;
+   background-color: black;
+}
+.nextBTN:hover{
+    background-color: rgb(72, 70, 70);
+}
+.footer{
+    margin-top: 30px;
+    display: flex; 
+    justify-content:space-between;
+}
+  

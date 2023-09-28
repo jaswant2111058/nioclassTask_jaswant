@@ -1,11 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import { HashRouter, Routes, Route, } from "react-router-dom";
+import LandingPage from "./pages/landingPage";
 
 function App() {
   return (
     <>
+         <HashRouter>
+              <Routes>
+              <Route exact path ='/' element={<LandingPage/>}/>
+              </Routes>
+              </HashRouter>
 
-    
     </>
   );
 }
