@@ -1,17 +1,26 @@
 import { useData } from "../components/contextHooks/DataContext";
 import { QuestionsId } from "../components/utils/questinsList";
+import { useNavigate } from 'react-router-dom';
 import "./style.css"
 
 
 const LandingPage = () => {
 
     const { user, setUser, setQues, selectQues } = useData();
-
+    const navigate = useNavigate()
     function handleChange(e) {
         setUser(e.target.value)
     }
     function handleClick(e) {
-        setQues([...selectQues, e.target.value])
+        if(e.target.checked){
+            setQues([...selectQues, e.target.value])
+        }
+        else{
+            let auxArray = [...selectQues];
+            auxArray.pop()
+            setQues(auxArray)
+        }
+       
     }
     const QuesList = QuestionsId.map((items) => {
 
@@ -21,14 +30,23 @@ const LandingPage = () => {
                
                 <p>{items}</p>
                 <input
-                    type="radio"
+                    type="checkbox"
                     value={items}
-                    onClick={handleClick}
+                    onChange={handleClick}
                 />
                 
             </div>
         )
     })
+
+    function nextPage(){
+        if(!selectQues.length){
+            window.alert(" First Select QUESTIONS ")
+        }
+        else{
+           navigate("/questions")
+        }
+    }
 
     return (
         <>
@@ -39,7 +57,7 @@ const LandingPage = () => {
                         <input
                             name="userName"
                             value={user}
-                            placeholder="Enter User Name"
+                            placeholder="Enter User Name ..."
                             onChange={handleChange}
                         />
                     </div>
@@ -51,12 +69,13 @@ const LandingPage = () => {
                     <div className="footer">
 
                         <div timeCalculate>
-
-                            <p>Time Of Quiz {selectQues.length?": "+selectQues.length*5+ " min":""}</p>
-
+                            <p>Time Of Quiz {selectQues.length?": "+selectQues.length*5+ " min":" : 0 min"}</p>
                         </div>
 
-                    <button className="nextBTN">
+                    <button
+                    className="nextBTN"
+                    onClick={nextPage}
+                    >
                         Next
                     </button>
 

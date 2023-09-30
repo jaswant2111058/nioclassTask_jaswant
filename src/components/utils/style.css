@@ -1,0 +1,24 @@
+
+
+.timing-bar{
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 20px;
+    width:90vw;
+    height:10px;
+    border-radius:5px ;
+    border: solid 1px;
+    transition: 2000ms;
+}
+.timing-bar-inner{
+    height: 8px;
+    background-color: aqua;
+    transition: 2000ms;
+}
+.countdown{
+    width: 90vw;
+    margin-top: 10px;
+    margin-right: auto;
+    margin-left: auto;
+}
