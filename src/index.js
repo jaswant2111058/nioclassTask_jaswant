@@ -10,11 +10,13 @@ import  {config}  from './components/utils/config';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <MathJaxContext config={config}>
+   
    <DataProvider>
+   <MathJaxContext config={config}>
       <App />
+      </MathJaxContext>
     </DataProvider>
-    </MathJaxContext>
+   
   </React.StrictMode>
 );
 // If you want to start measuring performance in your app, pass a function

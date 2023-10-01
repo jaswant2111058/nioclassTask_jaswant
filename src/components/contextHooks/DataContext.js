@@ -14,7 +14,6 @@ export const DataProvider = ({ children }) => {
   const [position, setPosition] = useState(0);
   const [timeSpent, setTimeSpent] = useState([]);
   const [preState, setPreState] = useState(null);
-  const [mathjax, setMathjax] = useState("");
   const [start,setStart] = useState(false);
   const [isfinal,setIsfinal]= useState(false)
 
@@ -41,28 +40,29 @@ export const DataProvider = ({ children }) => {
   // --------------------------api call and setting into mathjax (hook define avobe)-----------------------------------------
 
 
-  useEffect(() => {
-    async function changeQues(whichOne) {
-      try {
+  // useEffect(() => {
+  //   async function changeQues(whichOne) {
+  //     try {
 
-        if (selectQues.length) {
-          const res = await axios.get(`https://0h8nti4f08.execute-api.ap-northeast-1.amazonaws.com/getQuestionDetails/getquestiondetails?QuestionID=${quesObject[whichOne].question}`)
-          if (!res) {
-            window.alert("something went wrong")
-          }
-          else {
-            let ques = res.data[0].Question
-            setMathjax(ques)
-          }
-        }
-      }
+  //       if (selectQues.length) {
+  //         const res = await axios.get(`https://0h8nti4f08.execute-api.ap-northeast-1.amazonaws.com/getQuestionDetails/getquestiondetails?QuestionID=${quesObject[whichOne].question}`)
+  //         if (!res) {
+  //           window.alert("something went wrong")
+  //         }
+  //         else {
+  //           // let ques = res.data[0].Question
+  //           // console.log(res)
+  //           setMathjax(res.data[0].Question)
+  //         }
+  //       }
+  //     }
 
-      catch (err) {
-        console.log(err)
-      }
-    }
-    changeQues(position)
-  })
+  //     catch (err) {
+  //       console.log(err)
+  //     }
+  //   }
+  //   changeQues(position)
+  // })
 
 
 
@@ -137,7 +137,6 @@ export const DataProvider = ({ children }) => {
       setUser,
       selectQues,
       setQues,
-      mathjax,
       setPosition,
       position,
       submit,

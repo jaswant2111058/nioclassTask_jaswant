@@ -1,11 +1,11 @@
-export const  config = {
+export const config = {
     tex: {
-        inlineMath: [
-            ["$", "$"],
-            ["\\(", "\\)"],
-        ],
+      inlineMath: [
+        ["$", "$"],
+        ["\\(", "\\)"],
+      ],
     },
     svg: {
-        fontCache: "global",
+      fontCache: "global",
     },
 }

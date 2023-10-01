@@ -1,17 +1,19 @@
 
 import "./style.css"
-import axios from 'axios';
+
 import TimingBar from "../components/utils/timingBar";
 import { useData } from "../components/contextHooks/DataContext";
-import { MathJax, MathJaxContext } from 'better-react-mathjax';
+
 import { useNavigate } from 'react-router-dom';
 import { FaBars, FaChevronLeft, FaArrowAltCircleLeft, FaArrowAltCircleRight } from "react-icons/fa";
-import { useEffect,useState } from "react";
+import { useEffect } from "react";
+import Mathjax from "../components/utils/mathJax";
+
 
 
 const QuestionPage = () => {
 
-    const { selectQues, position,mathjax ,setPosition, submit, quesObject, setIsfinal } = useData();
+    const { selectQues, position ,setPosition, submit, quesObject, setIsfinal } = useData();
 
 
     const navigate = useNavigate()
@@ -60,17 +62,7 @@ const QuestionPage = () => {
             //   })
 
 
-    const config = {
-        tex: {
-            inlineMath: [
-                ["$", "$"],
-                ["\\(", "\\)"],
-            ],
-        },
-        svg: {
-            fontCache: "global",
-        },
-    }
+   
     return (
         <>
             <div className="QuestionPageMain">
@@ -85,9 +77,7 @@ const QuestionPage = () => {
                         <div className="mathjax">
                             <h3>{`${position + 1}.`} </h3>
                             
-                                <MathJax >
-                                    {mathjax}
-                                </MathJax>
+                                {<Mathjax quesID={selectQues[position]}/>}
                            
                         </div>
                         <div className="NextPriBtns">
