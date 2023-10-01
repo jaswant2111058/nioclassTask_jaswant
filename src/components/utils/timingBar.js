@@ -49,6 +49,7 @@ const TimingBar = () => {
 
   return (
     <>
+    <div>
     <div className="timing-bar">
       <div className="timing-bar-inner" style={{ width: `${progress}%` }}>
         
@@ -56,6 +57,7 @@ const TimingBar = () => {
     </div>
     <div className="countdown">
       <p>Time remaining : 0{ parseInt(countdown/60)} : {countdown%60}</p>
+    </div>
     </div>
     </>
   );

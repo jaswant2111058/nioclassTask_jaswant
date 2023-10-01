@@ -2,10 +2,8 @@
 
 .timing-bar{
     display: block;
-    margin-right: auto;
-    margin-left: auto;
     margin-top: 20px;
-    width:86vw;
+    width:85vw;
     height:10px;
     border-radius:5px ;
     border: solid 1px;
@@ -13,7 +11,7 @@
 }
 .timing-bar-inner{
     height: 9px;
-    background-color: rgb(66,65,65);
+    background-color: rgb(62, 61, 61);
     transition: 2000ms;
 }
 .countdown{

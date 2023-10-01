@@ -7,16 +7,16 @@ export const useData = () => {
 };
 
 export const DataProvider = ({ children }) => {
-
+  
   const [isLoading, setLoading] = useState(false);
   const [user, setUser] = useState("")
   const [selectQues, setQues] = useState([])
   const [position, setPosition] = useState(0);
   const [timeSpent, setTimeSpent] = useState([]);
   const [preState, setPreState] = useState(null);
-  const [mathjax, setMathjax] = useState("")
-
-
+  const [mathjax, setMathjax] = useState("");
+  const [start,setStart] = useState(false);
+  const [isfinal,setIsfinal]= useState(false)
 
 
   //---------------loading functions----------------------- 
@@ -28,9 +28,6 @@ export const DataProvider = ({ children }) => {
   const stopLoading = () => {
     setLoading(false);
   };
-
-
-
 
   //---------------------making desire objects from selected list--------------------
   const quesObject = [{}];
@@ -72,6 +69,8 @@ export const DataProvider = ({ children }) => {
   //----------------------calculating time spent on a particular state(question)  on changing state(question)------------------- 
 
   useEffect(() => {
+
+    if(start){
     
     if (preState === null) {
       setPreState(position)
@@ -107,8 +106,9 @@ export const DataProvider = ({ children }) => {
       })
     }
     setPreState(position)
-  
-  }, [position])
+
+  }
+  }, [position,start])
 
   //----------------saving in local storage ---------------------------------
 
@@ -142,7 +142,11 @@ export const DataProvider = ({ children }) => {
       position,
       submit,
       quesObject,
-      timeSpent
+      timeSpent,
+      setStart,
+      isfinal,
+      setIsfinal,
+      preState
 
     }}>
       {children}

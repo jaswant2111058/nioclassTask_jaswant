@@ -66,7 +66,7 @@ display: block;
    padding: 5px 10px;
   margin-top: -5px;
    color: #fff;
-   background-color:rgb(66, 65, 65) ;
+   background-color:gray ;
 }
 .nextBTN:hover{
     background-color: black;
@@ -94,7 +94,7 @@ display: block;
 }
 .navigationBarWraper{
     text-align: center;
-    min-width: 25vw;
+    width: 25vw;
     background-color: #fff;
     box-shadow: 0px 0px 10px 0px;
     border-radius: 10px;
@@ -113,13 +113,15 @@ display: block;
 
 .mathjax{
     font-size: larger;
+    display: flex;
+    justify-content: space-between;
 }
 .privious,.next{
         display: block;
-       border: none;
-       background-color: transparent;
-       font-size: 30px;
-       color: rgba(66, 65, 65, 0.854);
+        border: none;
+        background-color: transparent;
+        font-size: 45px;
+        color: gray;
 }
 
 .privious:hover,.next:hover{
@@ -127,7 +129,7 @@ display: block;
 }
 .NextPriBtns{
     display: flex;
-   justify-content:space-between;
+    justify-content:space-between;
     position:absolute;
     bottom: 0;
     padding: 15px;
@@ -135,12 +137,15 @@ display: block;
 }
 
 .navigationBar{
-    margin-top: 30px;
+    margin-top: 20px;
     text-align: center;
     display: flex;
     justify-content: center;
     gap: 2rem;
     flex-wrap: wrap;
+}
+.navigationBarWraper{
+    font-size:larger;
 }
 
 .navBtns{
@@ -148,7 +153,14 @@ display: block;
     height: 40px;
     width: 40px;
     border-radius: 20px;
+    border: none;
+    background-color: gray;
+    color: #fff;
+    font-size: larger;
 } 
+.navBtns:hover{
+    background-color: black;
+}
 
 .submitWraper{
     position: absolute;
@@ -158,10 +170,154 @@ display: block;
 }
 .submit{
     display: block;
+    border: none;
     font-size: large;
-    border-radius: 5px;
-    border:solid 1px;
-    padding: 5px; 
+    border-radius: 10px;
+    padding: 5px 10px;
+    color: #fff;
+    background-color:gray ;
     margin-left: auto;
     margin-right: auto;
 }
+.submit:hover{
+    background-color: black;
+}
+
+.progessBar{
+    width: 100vw;
+    display: flex;
+    justify-content:center;
+    padding: 0px 10px;
+    gap: 1rem;
+}
+.optBar{
+    margin-top:17px ;
+}
+
+
+
+
+@media screen and (min-width:1050px) {
+    .optBar{
+        display: none;
+
+    }
+    .closeIcon{
+        display: none;
+    }
+    .slideBar{
+        display: none;
+    }
+}
+@media screen and (max-width:1050px) {
+
+    .navigationBarWraper{
+       display: none;
+    }
+    .quesScreen{
+        width: 85vw;
+    }
+    .navigationBarWraper>div{
+        display: flex;
+    }
+    .slideBar{
+        transition: 1000ms;
+        width: 0px;
+        position: fixed;
+        top: 0;
+        height: 80vh;
+        overflow: hidden;
+        background-color: #fff;
+        box-shadow: 0px 0px 10px 0px;
+    }
+    .upper{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    .closeIcon{
+        font-size: 25px;
+    }
+    .submit{
+        margin-left: 90px;
+    }
+
+    
+}
+@media screen and (max-width:350px) {
+
+    .navigationBarWraper{
+        display: none;
+    }
+    .quesScreen{
+        width: 95vw;
+        overflow: auto;
+    }
+    .mathjax{
+        display: flex;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 10px;
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.finalpage{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    padding: 10px;
+    
+
+}
+.table{
+    display: block;
+    
+    font-size: 15px;
+}
+
+.inner_finalpage{
+   
+    display: flex;
+    justify-content: center;
+    background-color: rgba(128, 128, 128, 0.699);
+}
+td{
+    padding: 5px;
+    background-color: #fff;
+}
+.wraperFinal{
+    text-align:center;
+    background-color: #fff;
+    padding: 18px;
+    box-shadow: 0px 0px 10px 0px;
+    border-radius: 5px;
+}
+.wraperFinal>h4{
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+
+
+
+
+
+

@@ -6,16 +6,14 @@ import "./style.css"
 
 const LandingPage = () => {
 
-    const { user, setUser, setQues, selectQues } = useData();
+    const { user, setUser, setQues, selectQues,setStart } = useData();
     const navigate = useNavigate()
     function handleChange(e) {
         setUser(e.target.value)
-     
     }
     function handleClick(e) {
         if(e.target.checked){
             setQues([...selectQues, e.target.value])
-           
         }
         else{
             let auxArray = [...selectQues];
@@ -48,6 +46,7 @@ const LandingPage = () => {
             window.alert("First Select QUESTIONS ")
         }
         else{
+        setStart(true)
            navigate("/questions")
         }
     }
