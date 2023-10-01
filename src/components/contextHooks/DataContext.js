@@ -62,7 +62,7 @@ export const DataProvider = ({ children }) => {
       }
     }
     changeQues(position)
-  })
+  },[position,selectQues])
 
 
 

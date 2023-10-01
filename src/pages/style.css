@@ -114,7 +114,9 @@ display: block;
 .mathjax{
     font-size: larger;
     display: flex;
-    justify-content: center;
+    margin-left: auto;
+    margin-right: auto; 
+   
 }
 .privious,.next{
         display: block;
