@@ -7,8 +7,8 @@ const TimingBar = () => {
 
    const {selectQues,submit} = useData(); 
   const [progress, setProgress] = useState(0);
-  const duration =selectQues.length*1000*60 
-  const [countdown, setCountdown] = useState(selectQues.length*60);
+  const duration =selectQues.length*1000*60*5 
+  const [countdown, setCountdown] = useState(selectQues.length*60*5);
   
   useEffect(() => {
     let interval;
