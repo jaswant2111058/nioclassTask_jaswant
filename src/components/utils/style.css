@@ -7,12 +7,12 @@
     height:10px;
     border-radius:5px ;
     border: solid 1px;
-    transition: 2000ms;
+    transition: 5000ms;
 }
 .timing-bar-inner{
     height: 9px;
     background-color: rgb(62, 61, 61);
-    transition: 2000ms;
+    transition: 5000ms;
 }
 .countdown{
     width: 86vw;

@@ -31,7 +31,6 @@ const QuestionPage = () => {
     
             useEffect(()=>{
                 if(!selectQues.length){
-                    console.log("   yes")
                     navigate("/")
                 }
             }) 
@@ -91,10 +90,14 @@ const QuestionPage = () => {
                         </div>
                         <div className="submitWraper">
                             <button className="submit" onClick={(() => {
-                                submit();
-                                setIsfinal(true)
-                                navigate("/finalsubmit")
-                            })} >
+                                 if(selectQues.length){
+                                    submit();
+                                    setIsfinal(true)
+                                    navigate("/finalsubmit")}
+                                    else{
+                                        navigate("/")
+                                    }
+                            })}>
                                 Submit
                             </button>
                         </div>
