@@ -42,12 +42,17 @@ const LandingPage = () => {
     })
 
     function nextPage(){
+        console.log(user)
         if(!selectQues.length){
             window.alert("First Select QUESTIONS ")
         }
+        else if(!user){
+            
+            window.alert("user name is required")
+        }
         else{
         setStart(true)
-           navigate("/questions")
+        navigate("/questions")
         }
     }
 

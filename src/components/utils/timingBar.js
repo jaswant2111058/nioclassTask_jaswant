@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 
 const TimingBar = () => {
 
-   const {selectQues} = useData(); 
+   const {selectQues,submit} = useData(); 
   const [progress, setProgress] = useState(0);
   const duration =selectQues.length*1000*60 
   const [countdown, setCountdown] = useState(selectQues.length*60);
@@ -30,19 +30,16 @@ const TimingBar = () => {
   }, [progress, duration]);
 
   useEffect(() => {
-    // Exit the countdown when it reaches 0
     if (countdown === 0) {
-      // You can perform some action here when the countdown reaches 0
+      submit()
       console.log("Countdown reached 0");
       return;
     }
 
-    // Update the countdown every second
     const timer = setInterval(() => {
       setCountdown(prevCountdown => prevCountdown - 1);
     }, 1000);
 
-    // Clear the interval when the component unmounts
     return () => clearInterval(timer);
   }, [countdown]);
 

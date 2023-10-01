@@ -5,6 +5,7 @@ import { useData } from "../components/contextHooks/DataContext";
 import { MathJax, MathJaxContext } from 'better-react-mathjax';
 import { useNavigate } from 'react-router-dom';
 import { FaBars, FaChevronLeft, FaArrowAltCircleLeft, FaArrowAltCircleRight } from "react-icons/fa";
+import { useEffect } from "react";
 
 
 const QuestionPage = () => {
@@ -12,6 +13,7 @@ const QuestionPage = () => {
     const { selectQues, position, setPosition, mathjax, submit, quesObject, setIsfinal } = useData();
 
     const navigate = useNavigate()
+
     const navBtns = quesObject.map((item) => {
         if (!selectQues.length) {
             return ""
@@ -26,9 +28,13 @@ const QuestionPage = () => {
             </button>
         )
     })
-
-
-
+    
+            useEffect(()=>{
+                if(!selectQues.length){
+                    console.log("   yes")
+                    navigate("/")
+                }
+            }) 
     const config = {
         tex: {
             inlineMath: [
@@ -109,9 +115,13 @@ const QuestionPage = () => {
                         </div>
                         <div className="submitWraper">
                             <button className="submit" onClick={(() => {
+                                if(selectQues.length){
                                 submit();
                                 setIsfinal(true)
-                                navigate("/finalsubmit")
+                                navigate("/finalsubmit")}
+                                else{
+                                    navigate("/")
+                                }
                             })} >
                                 Submit
                             </button>

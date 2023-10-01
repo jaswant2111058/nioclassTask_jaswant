@@ -9,7 +9,7 @@ export const useData = () => {
 export const DataProvider = ({ children }) => {
   
   const [isLoading, setLoading] = useState(false);
-  const [user, setUser] = useState("")
+  const [user, setUser] = useState()
   const [selectQues, setQues] = useState([])
   const [position, setPosition] = useState(0);
   const [timeSpent, setTimeSpent] = useState([]);
@@ -121,7 +121,7 @@ export const DataProvider = ({ children }) => {
   function submit() {
     setTimeSpent((items) => {
       const newItems = [...items];
-      const auxObj = { ...newItems[position], timeSpent: (new Date() - newItems[position].enterTime) + Number(newItems[position].timeSpent), enterTime: null }
+      const auxObj = { ...newItems[position], timeSpent: (new Date() - newItems[position]?.enterTime?newItems[position].enterTime:0) + newItems[position]?.timeSpent?newItems[position].timeSpent:0, enterTime: null }
       newItems[position] = auxObj;
       return newItems;
     })
