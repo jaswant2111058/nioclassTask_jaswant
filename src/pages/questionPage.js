@@ -72,7 +72,6 @@ const QuestionPage = () => {
         },
     }
     return (
-
         <>
             <div className="QuestionPageMain">
                 <div className="progessBar">
@@ -80,17 +79,16 @@ const QuestionPage = () => {
                         <FaBars onClick={() => { document.getElementById("slideBar").style.width="250px" }}/>
                     </div>
                     <TimingBar />
-
                 </div>
                 <div className="screenWraper">
                     <div className="quesScreen">
                         <div className="mathjax">
                             <h3>{`${position + 1}.`} </h3>
-                            <MathJaxContext config={config}>
+                            
                                 <MathJax >
                                     {mathjax}
                                 </MathJax>
-                            </MathJaxContext>
+                           
                         </div>
                         <div className="NextPriBtns">
 
