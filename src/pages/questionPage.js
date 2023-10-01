@@ -11,9 +11,8 @@ import { useEffect,useState } from "react";
 
 const QuestionPage = () => {
 
-    const { selectQues, position, setPosition, submit, quesObject, setIsfinal } = useData();
+    const { selectQues, position,mathjax ,setPosition, submit, quesObject, setIsfinal } = useData();
 
-    const [mathjax,setMathjax] = useState("")
 
     const navigate = useNavigate()
 
@@ -37,28 +36,28 @@ const QuestionPage = () => {
                     navigate("/")
                 }
             }) 
-            useEffect(() => {
-                async function changeQues(whichOne) {
-                  try {
+            // useEffect(() => {
+            //     async function changeQues(whichOne) {
+            //       try {
             
-                    if (selectQues.length) {
-                      const res = await axios.get(`https://0h8nti4f08.execute-api.ap-northeast-1.amazonaws.com/getQuestionDetails/getquestiondetails?QuestionID=${quesObject[whichOne].question}`)
-                      if (!res) {
-                        window.alert("something went wrong")
-                      }
-                      else {
+            //         if (selectQues.length) {
+            //           const res = await axios.get(`https://0h8nti4f08.execute-api.ap-northeast-1.amazonaws.com/getQuestionDetails/getquestiondetails?QuestionID=${quesObject[whichOne].question}`)
+            //           if (!res) {
+            //             window.alert("something went wrong")
+            //           }
+            //           else {
                          
-                        setMathjax(res.data[0].Question)
-                      }
-                    }
-                  }
+            //             setMathjax(res.data[0].Question)
+            //           }
+            //         }
+            //       }
             
-                  catch (err) {
-                    console.log(err)
-                  }
-                }
-                changeQues(position)
-              })
+            //       catch (err) {
+            //         console.log(err)
+            //       }
+            //     }
+            //     changeQues(position)
+            //   })
 
 
     const config = {
