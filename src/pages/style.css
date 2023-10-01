@@ -255,16 +255,16 @@ display: block;
 
     
 }
-@media screen and (max-width:430px) {
+@media screen and (max-width:520px) {
 
     .navigationBarWraper{
         display: none;
     }
     .quesScreen{
-        min-width: 100vw;
-        overflow: hidden;
+        min-width: 95vw;
+        overflow: auto;
     }
-    .mathjax{
+    .mathjax{   
         
         display: flex;
         margin-left: auto;

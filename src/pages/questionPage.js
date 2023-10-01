@@ -1,16 +1,19 @@
 
 import "./style.css"
+import axios from 'axios';
 import TimingBar from "../components/utils/timingBar";
 import { useData } from "../components/contextHooks/DataContext";
 import { MathJax, MathJaxContext } from 'better-react-mathjax';
 import { useNavigate } from 'react-router-dom';
 import { FaBars, FaChevronLeft, FaArrowAltCircleLeft, FaArrowAltCircleRight } from "react-icons/fa";
-import { useEffect } from "react";
+import { useEffect,useState } from "react";
 
 
 const QuestionPage = () => {
 
-    const { selectQues, position, setPosition, mathjax, submit, quesObject, setIsfinal } = useData();
+    const { selectQues, position, setPosition, submit, quesObject, setIsfinal } = useData();
+
+    const [mathjax,setMathjax] = useState("")
 
     const navigate = useNavigate()
 
@@ -34,6 +37,30 @@ const QuestionPage = () => {
                     navigate("/")
                 }
             }) 
+            useEffect(() => {
+                async function changeQues(whichOne) {
+                  try {
+            
+                    if (selectQues.length) {
+                      const res = await axios.get(`https://0h8nti4f08.execute-api.ap-northeast-1.amazonaws.com/getQuestionDetails/getquestiondetails?QuestionID=${quesObject[whichOne].question}`)
+                      if (!res) {
+                        window.alert("something went wrong")
+                      }
+                      else {
+                         
+                        setMathjax(res.data[0].Question)
+                      }
+                    }
+                  }
+            
+                  catch (err) {
+                    console.log(err)
+                  }
+                }
+                changeQues(position)
+              })
+
+
     const config = {
         tex: {
             inlineMath: [
