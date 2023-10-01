@@ -10,10 +10,12 @@ const LandingPage = () => {
     const navigate = useNavigate()
     function handleChange(e) {
         setUser(e.target.value)
+     
     }
     function handleClick(e) {
         if(e.target.checked){
             setQues([...selectQues, e.target.value])
+           
         }
         else{
             let auxArray = [...selectQues];
@@ -22,6 +24,7 @@ const LandingPage = () => {
         }
        
     }
+   
     const QuesList = QuestionsId.map((items) => {
 
         return (
@@ -30,6 +33,7 @@ const LandingPage = () => {
                
                 <p>{items}</p>
                 <input
+                    className="checkBox"
                     type="checkbox"
                     value={items}
                     onChange={handleClick}
@@ -41,7 +45,7 @@ const LandingPage = () => {
 
     function nextPage(){
         if(!selectQues.length){
-            window.alert(" First Select QUESTIONS ")
+            window.alert("First Select QUESTIONS ")
         }
         else{
            navigate("/questions")
@@ -55,6 +59,7 @@ const LandingPage = () => {
                 <div className="landing">
                     <div className="user_name">
                         <input
+                           
                             name="userName"
                             value={user}
                             placeholder="Enter User Name ..."
@@ -62,16 +67,15 @@ const LandingPage = () => {
                         />
                     </div>
                     <div className="selectQues">
-                        <p>Select Questions</p>
+                        <h4>Select Questions</h4>
                     </div>
+                    <div className="quseListWraper">
                     {QuesList}
-
+                    </div>
                     <div className="footer">
-
-                        <div timeCalculate>
+                        <div className=" timeCalculate">
                             <p>Time Of Quiz {selectQues.length?": "+selectQues.length*5+ " min":" : 0 min"}</p>
                         </div>
-
                     <button
                     className="nextBTN"
                     onClick={nextPage}
