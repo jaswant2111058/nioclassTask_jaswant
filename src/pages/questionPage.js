@@ -15,7 +15,6 @@ const QuestionPage = () => {
 
     const { selectQues, position ,setPosition, submit, quesObject, setIsfinal } = useData();
 
-
     const navigate = useNavigate()
 
     const navBtns = quesObject.map((item) => {
@@ -38,28 +37,7 @@ const QuestionPage = () => {
                     navigate("/")
                 }
             }) 
-            // useEffect(() => {
-            //     async function changeQues(whichOne) {
-            //       try {
-            
-            //         if (selectQues.length) {
-            //           const res = await axios.get(`https://0h8nti4f08.execute-api.ap-northeast-1.amazonaws.com/getQuestionDetails/getquestiondetails?QuestionID=${quesObject[whichOne].question}`)
-            //           if (!res) {
-            //             window.alert("something went wrong")
-            //           }
-            //           else {
-                         
-            //             setMathjax(res.data[0].Question)
-            //           }
-            //         }
-            //       }
-            
-            //       catch (err) {
-            //         console.log(err)
-            //       }
-            //     }
-            //     changeQues(position)
-            //   })
+          
 
 
    
@@ -77,7 +55,7 @@ const QuestionPage = () => {
                         <div className="mathjax">
                             <h3>{`${position + 1}.`} </h3>
                             
-                                {<Mathjax quesID={selectQues[position]}/>}
+                                {<Mathjax quesId={selectQues[position]}/>}
                            
                         </div>
                         <div className="NextPriBtns">
@@ -88,7 +66,7 @@ const QuestionPage = () => {
                                 <FaArrowAltCircleLeft />
                             </button>
                             <button className="next"
-                                onClick={(() => { if (position !== selectQues.length - 1) setPosition(position + 1) })}
+                                onClick={(() => { if (position !== (selectQues.length - 1)) setPosition(position + 1) })}
                             >
                                 <FaArrowAltCircleRight />
                             </button>

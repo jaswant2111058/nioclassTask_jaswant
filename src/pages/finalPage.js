@@ -7,7 +7,7 @@ const FinalPage = () => {
 
     const { user, timeSpent, selectQues,isfinal } = useData();
     const navigate = useNavigate()
-
+    console.log(timeSpent)
     useEffect(()=>{
 
         if(isfinal){
@@ -23,10 +23,12 @@ const FinalPage = () => {
     let totalTime=0;
 
         timeSpent.forEach(element => {
-            totalTime= totalTime+element.timeSpent
+            if(element) totalTime= totalTime+element.timeSpent
         });
 
     const tableData = timeSpent.map((items) => {
+
+        if(items){
 
         return (
             <>
@@ -38,7 +40,7 @@ const FinalPage = () => {
                         {selectQues[items.id]}
                     </td>
                     <td>
-                        {`${parseInt((items.timeSpent) / (1000 * 60))} min : ${parseInt((items.timeSpent / 1000) % 60)} sec`}
+                        {`${Math.round((items.timeSpent) / (1000 * 60))} min : ${Math.round((items.timeSpent / 1000) % 60)} sec`}
                     </td>
 
                 </tr>
@@ -46,6 +48,7 @@ const FinalPage = () => {
 
             </>
         )
+        }
     })
 
     return (
@@ -63,7 +66,7 @@ const FinalPage = () => {
                             {tableData}
                         </table>
                     </div>
-                    <h4>Total Time : {`${parseInt((totalTime) / (1000 * 60))} min : ${parseInt((totalTime / 1000) % 60)-1} sec`}</h4>
+                    <h4>Total Time : {`${parseInt((totalTime) / (1000 * 60))} min : ${Math.round((totalTime / 1000) % 60)} sec`}</h4>
                 </div>
             </div>
         </>

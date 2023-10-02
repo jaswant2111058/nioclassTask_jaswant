@@ -42,7 +42,6 @@ const LandingPage = () => {
     })
 
     function nextPage(){
-        console.log(user)
         if(!selectQues.length){
             window.alert("First Select QUESTIONS ")
         }
